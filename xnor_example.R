@@ -1,3 +1,6 @@
+# Import neural network functionality
+source("ffneuralnet.R")
+
 ###################################################
 ## Import and format XNOR data
 ###################################################
@@ -14,6 +17,7 @@ n = dim(X)[2]
 ## Run network with XNOR data
 ###################################################
 
+source("ffneuralnet.R")
 net_structure = c(2, 2, 1) # number of nodes in each layer (not including bias node)
 learning_rate = .3 # learning rate for gradient descent
 regularization_factor = 0 # regularization parameter for gradient descent
@@ -24,3 +28,7 @@ trained_weights = train(X, Y, net_structure, learning_rate, regularization_facto
 Y_predicted = predict(X, trained_weights)
 acc = compute_accuracy(Y_predicted, Y)
 cat("XNOR network test accuracy rate: ", 100*acc, "%", sep="")
+
+# Visualize decision boundary
+source("plot_decision_boundary.R")
+plot_decision_boundary(x_min=0, y_min=0, x_max=1, y_max=1, X, Y_predicted, resolution=0.01)
