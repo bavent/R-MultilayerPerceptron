@@ -13,7 +13,7 @@ plot_decision_boundary = function(x_min, y_min, x_max, y_max, X, Y_predicted, re
   Z = predict(grid, trained_weights)
   
   # Format original data to be overlaid on decision boundary
-  data = data.frame(X, Y_predicted)
+  data = data.frame(X, Y, Y_predicted)
   colnames(data) = c("x", "y", "label")
   
   # Run plotting code
